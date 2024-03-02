@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img{
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <img src="/animate.jpeg"id="img" alt="">
+            <p>Click buuton to move the image to right</p>
+            <input type="button" value="Moveinch" onclick="moveinch();">
+            <input type="button" value="Moveright" onclick="moveright();">
+            <input type="button" value="Stop" onclick="stop();">
+        </form>
+    </div>
+
+    <script>
+        var img = null;
+        function init(){
+            img = document.getElementById("img");
+            img.style.position = 'relative';
+            img.style.left ='0px'
+        }
+        function moveinch(){
+            img.style.left = parseInt(img.style.left)+ 10 +'px';
+        }
+        function moveright(){
+            img.style.left = parseInt(img.style.left)+ 10 +'px';
+            animate = setTimeout(moveright,20)
+        }
+        function stop(){
+            clearTimeout(animate);
+            img.style.left='0px'
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>
